@@ -41,9 +41,9 @@ int UserManager::getNewUserId() {
 
 void UserManager::userRegister() {
     User user;
-
     user = setNewUserData();
     users.push_back(user);
+    fileWithUsers.addUserToFile(user);
     cout << endl << "Dodano nowego uzytkownika." << endl;
 }
 

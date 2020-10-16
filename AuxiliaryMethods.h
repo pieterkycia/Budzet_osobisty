@@ -11,6 +11,5 @@ class AuxiliaryMethods {
 public:
     static string loadLine();
     static string changeFirstLetterForUpperCaseAndOthersForLowerCase(string text);
-
 };
 #endif // AUXILIARYMETHODS_H
