@@ -14,3 +14,18 @@ string AuxiliaryMethods::changeFirstLetterForUpperCaseAndOthersForLowerCase(stri
     }
     return text;
 }
+
+char AuxiliaryMethods::loadChar() {
+    string text = "";
+    char oneChar  = {0};
+    while (true) {
+        getline(cin, text);
+
+        if (text.length() == 1) {
+            oneChar = text[0];
+            break;
+        }
+        cout << "To nie jest pojedynczy znak. Wpisz ponownie." << endl;
+    }
+    return oneChar;
+}

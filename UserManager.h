@@ -13,14 +13,13 @@ class UserManager {
 
     bool loginExist(string login);
     int getNewUserId();
+    User setNewUserData();
 
 public:
-    UserManager(string nameFile): fileWithUsers(nameFile) {
+    UserManager(string nameFileWithUsers): fileWithUsers(nameFileWithUsers) {
         loggedUserId = 0;
         users = fileWithUsers.loadUserFromFile();
     };
-
-    User setNewUserData();
 
     void userRegister();
     void userLogin();
