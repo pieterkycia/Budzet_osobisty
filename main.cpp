@@ -7,6 +7,7 @@ int main() {
     UserManager userManager("users.xml");
     userManager.showAllUsers();
     while (1) {
+        userManager.userLogin();
         userManager.userRegister();
         userManager.showAllUsers();
     }

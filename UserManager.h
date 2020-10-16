@@ -7,6 +7,7 @@
 #include <vector>
 
 class UserManager {
+    int loggedUserId;
     vector <User> users;
     FileWithUsers fileWithUsers;
 
@@ -15,12 +16,14 @@ class UserManager {
 
 public:
     UserManager(string nameFile): fileWithUsers(nameFile) {
+        loggedUserId = 0;
         users = fileWithUsers.loadUserFromFile();
     };
 
     User setNewUserData();
 
     void userRegister();
+    void userLogin();
     void showAllUsers();
 };
 

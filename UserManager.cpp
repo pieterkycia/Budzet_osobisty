@@ -47,6 +47,38 @@ void UserManager::userRegister() {
     cout << endl << "Dodano nowego uzytkownika." << endl;
 }
 
+void UserManager::userLogin() {
+    string login = "";
+    string password = "";
+
+    if (!users.empty()) {
+        cout << endl << "Podaj login: ";
+        login = AuxiliaryMethods::loadLine();
+        for (int i = 0; i < users.size(); i++) {
+            if (users[i].getLogin() == login) {
+
+                for (int j = 3; j > 0; j--) {
+                    cout << endl << "Podaj haslo. Pozostalo prob: " << j << ": ";
+                    password = AuxiliaryMethods::loadLine();
+                    if (users[i].getPassword() == password) {
+                        cout << endl << "Zalogowano." << endl;
+                        loggedUserId = users[i].getUserId();
+                        return;
+                    }
+                }
+                cout << endl << "Wprowadzono 3 razy bledne haslo." << endl;
+                system("pause");
+                return;
+            }
+        }
+        cout << endl << "Nie ma uzytkownika z takim loginem " << endl;
+        system("pause");
+    } else {
+        cout << endl << "Nie ma zapisanych uzytkownikow." << endl;
+        system("pause");
+    }
+}
+
 void UserManager::showAllUsers() {
     if (!users.empty()) {
         for (int i = 0; i < users.size(); i++) {
