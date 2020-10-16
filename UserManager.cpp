@@ -79,6 +79,12 @@ void UserManager::userLogin() {
     }
 }
 
+void UserManager::userLogout() {
+    cout << endl << "Wylogowano." << endl;
+    loggedUserId = 0;
+    system("pause");
+}
+
 void UserManager::showAllUsers() {
     if (!users.empty()) {
         for (int i = 0; i < users.size(); i++) {
@@ -93,4 +99,8 @@ void UserManager::showAllUsers() {
         cout << endl << "Nie ma zapisanych uzytkownikow." << endl;
         system("pause");
     }
+}
+
+int UserManager::getLoggedUserId() {
+return loggedUserId;
 }

@@ -9,6 +9,7 @@ int main() {
     while (1) {
         userManager.userLogin();
         userManager.userRegister();
+        userManager.userLogout();
         userManager.showAllUsers();
     }
     return 0;

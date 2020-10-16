@@ -24,7 +24,10 @@ public:
 
     void userRegister();
     void userLogin();
+    void userLogout();
     void showAllUsers();
+
+    int getLoggedUserId();
 };
 
 
