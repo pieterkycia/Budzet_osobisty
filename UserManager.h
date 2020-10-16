@@ -14,7 +14,9 @@ class UserManager {
     int getNewUserId();
 
 public:
-    UserManager(string nameFile): fileWithUsers(nameFile) {};
+    UserManager(string nameFile): fileWithUsers(nameFile) {
+        users = fileWithUsers.loadUserFromFile();
+    };
 
     User setNewUserData();
 
