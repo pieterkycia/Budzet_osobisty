@@ -12,6 +12,7 @@ public:
     FileWithUsers(string nameFile): NAME_FILE(nameFile) {};
 
     void addUserToFile(User user);
+    void changeUserPasswordInFile(User user);
     vector <User> loadUserFromFile();
 };
 

@@ -47,3 +47,22 @@ vector <User> FileWithUsers::loadUserFromFile() {
     }
     return users;
 }
+
+void FileWithUsers::changeUserPasswordInFile(User user) {
+    CMarkup xml;
+
+    xml.Load(NAME_FILE);
+    xml.FindElem("Users");
+    xml.IntoElem();
+    while (xml.FindElem("User")) {
+        xml.IntoElem();
+        xml.FindElem("userId");
+        if (atoi( MCD_2PCSZ(xml.GetData())) == user.getUserId()) {
+            xml.FindElem("password");
+            xml.SetData(user.getPassword());
+            xml.Save(NAME_FILE);
+            return;
+        }
+        xml.OutOfElem();
+    }
+}

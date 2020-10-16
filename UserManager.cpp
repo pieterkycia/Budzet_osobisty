@@ -45,6 +45,7 @@ void UserManager::userRegister() {
     users.push_back(user);
     fileWithUsers.addUserToFile(user);
     cout << endl << "Dodano nowego uzytkownika." << endl;
+    system("pause");
 }
 
 void UserManager::userLogin() {
@@ -63,6 +64,7 @@ void UserManager::userLogin() {
                     if (users[i].getPassword() == password) {
                         cout << endl << "Zalogowano." << endl;
                         loggedUserId = users[i].getUserId();
+                        system("pause");
                         return;
                     }
                 }
@@ -85,6 +87,22 @@ void UserManager::userLogout() {
     system("pause");
 }
 
+void UserManager::changePassword() {
+    string newpassword = "";
+    cout << endl << "Podaj nowe haslo: ";
+    newpassword = AuxiliaryMethods::loadLine();
+
+    for (int i = 0; i < users.size(); i++) {
+        if (users[i].getUserId() == loggedUserId) {
+            users[i].setPassword(newpassword);
+            fileWithUsers.changeUserPasswordInFile(users[i]);
+            cout << endl << "Haslo zostalo zmienione" << endl;
+            system("pause");
+            return;
+        }
+    }
+}
+
 void UserManager::showAllUsers() {
     if (!users.empty()) {
         for (int i = 0; i < users.size(); i++) {
@@ -97,10 +115,10 @@ void UserManager::showAllUsers() {
         }
     } else {
         cout << endl << "Nie ma zapisanych uzytkownikow." << endl;
-        system("pause");
     }
+    system("pause");
 }
 
 int UserManager::getLoggedUserId() {
-return loggedUserId;
+    return loggedUserId;
 }

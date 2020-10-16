@@ -8,6 +8,7 @@ int main() {
     userManager.showAllUsers();
     while (1) {
         userManager.userLogin();
+        userManager.changePassword();
         userManager.userRegister();
         userManager.userLogout();
         userManager.showAllUsers();
