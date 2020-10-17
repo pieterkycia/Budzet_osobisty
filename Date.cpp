@@ -118,37 +118,43 @@ void Date::setLocalDate() {
     day = date -> tm_mday;
 }
 
-bool Date::setUserDate() {
+void Date::setUserDate() {
     string userDate = "";
-    cout << "Podaj date w postaci rrrr-mm-dd: ";
-    userDate = AuxiliaryMethods::loadLine();
-    if (checkDate(userDate) == false) {
-        cout << endl << "Bledna data." << endl;
-        return false;
-    } else
-        return true;
+    do {
+        cout << "Podaj date w postaci rrrr-mm-dd: ";
+        userDate = AuxiliaryMethods::loadLine();
+    } while (checkDate(userDate) == false);
 }
 
 bool Date::checkDate(string date) {
     string line = "";
     int choice = 0;
-
+    if (date.length() < 8 || date.length() > 10) {
+        cout << "Niepoprawna data." << endl;
+        return false;
+    }
     for (int i = 0; i <= date.length(); i++) {
         if (date[i] != '-' && date[i] != '\0') {
             line += date[i];
         } else {
             switch (choice) {
             case 0:
-                if (this -> setYear(atoi(line.c_str())) == false)
+                if (this -> setYear(atoi(line.c_str())) == false) {
+                    cout << "Niepoprawna data." << endl;
                     return false;
+                }
                 break;
             case 1:
-                if (this -> setMonth(atoi(line.c_str())) == false)
+                if (this -> setMonth(atoi(line.c_str())) == false) {
+                    cout << "Niepoprawna data." << endl;
                     return false;
+                }
                 break;
             case 2:
-                if (this -> setDay(atoi(line.c_str())) == false)
+                if (this -> setDay(atoi(line.c_str())) == false) {
+                    cout << "Niepoprawna data." << endl;
                     return false;
+                }
                 break;
             }
             line = "";
@@ -177,14 +183,26 @@ void Date::setPreviousMonth() {
 }
 
 void Date::showDate() {
-    cout << endl;
-    if (month < 10 && day < 10)
-        cout << year << "-0" << month << "-0" << day << endl;
-    else if (month < 10)
-        cout << year << "-0" << month << "-" << day << endl;
-    else if (day < 10)
-        cout << year << "-" << month << "-0" << day << endl;
+    cout << endl << convertDateToString() << endl;
+}
+
+string Date::convertDateToString() {
+    string convertedDate = "";
+    string yearToString = "";
+    string monthToString = "";
+    string dayToString = "";
+
+    if (day < 10)
+        dayToString = "0" + AuxiliaryMethods::convertIntToString(day);
     else
-        cout << year << "-" << month << "-" << day << endl;
+        dayToString = AuxiliaryMethods::convertIntToString(day);
+    if (month < 10)
+        monthToString = "0" + AuxiliaryMethods::convertIntToString(month);
+    else
+        monthToString = AuxiliaryMethods::convertIntToString(month);
+    yearToString = AuxiliaryMethods::convertIntToString(year);
+
+    convertedDate = yearToString + "-" + monthToString + "-" + dayToString;
+    return convertedDate;
 }
 

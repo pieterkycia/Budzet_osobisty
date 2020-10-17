@@ -26,13 +26,14 @@ public:
     bool operator>=(const Date & newDate);
 
     void setLocalDate();
-    bool setUserDate();
+    void setUserDate();
     bool checkDate(string date);
 
     void setFirstDayInMonth();
     void setLastDayInMonth();
     void setPreviousMonth();
 
+    string convertDateToString();
     void showDate();
 };
 
