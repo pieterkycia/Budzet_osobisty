@@ -11,14 +11,15 @@ void IncomeManager::addIncome() {
 
 Income IncomeManager::setNewIncomeData() {
     Income income;
-    float amount;
+    string amount;
 
     income.setDate();
     cout << "Podaj nazwe przychodu: ";
     income.setItem(AuxiliaryMethods::loadLine());
     cout << "Podaj wysokosc przychodu: ";
-    cin >> amount;
-    income.setAmount(amount);
+    amount = AuxiliaryMethods::loadLine();
+    amount = AuxiliaryMethods::changeCommaToDot(amount);
+    income.setAmount(atof(amount.c_str()));
     income.setIncomeId(getNewIncomeId());
     income.setUserId(LOGGED_USER_ID);
     return income;
