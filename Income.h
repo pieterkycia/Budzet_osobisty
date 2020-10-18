@@ -17,8 +17,9 @@ public:
     void setIncomeId(int incomeId);
     void setUserId(int userId);
     void setDate();
+    void setDateFromFile(string dateFromFile);
     void setItem(string item);
-    void setAmount(float amount);
+    void setAmount(string newAmount);
 
     int getIncomeId();
     int getUserId();

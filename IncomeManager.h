@@ -2,6 +2,7 @@
 #define INCOMEMANAGER_H
 
 #include "Income.h"
+#include "FileWithIncomes.h"
 #include <vector>
 
 class IncomeManager {
@@ -9,12 +10,15 @@ class IncomeManager {
     vector <Income> incomes;
     Date startingDateToShowBalance;
     Date endingDateToShowBalance;
+    FileWithIncomes fileWithIncomes;
 
     Income setNewIncomeData();
     int getNewIncomeId();
 
 public:
-    IncomeManager(int loggedUserId): LOGGED_USER_ID(loggedUserId) {};
+    IncomeManager(string fileName, int loggedUserId): fileWithIncomes(fileName), LOGGED_USER_ID(loggedUserId) {
+    incomes = fileWithIncomes.loadIncomesLoggedUserFromFile(LOGGED_USER_ID);
+    };
 
     void addIncome();
     void showAllIncomes();

@@ -11,15 +11,12 @@ void IncomeManager::addIncome() {
 
 Income IncomeManager::setNewIncomeData() {
     Income income;
-    string amount;
 
     income.setDate();
     cout << "Podaj nazwe przychodu: ";
     income.setItem(AuxiliaryMethods::loadLine());
     cout << "Podaj wysokosc przychodu: ";
-    amount = AuxiliaryMethods::loadLine();
-    amount = AuxiliaryMethods::changeCommaToDot(amount);
-    income.setAmount(atof(amount.c_str()));
+    income.setAmount(AuxiliaryMethods::loadLine());
     income.setIncomeId(getNewIncomeId());
     income.setUserId(LOGGED_USER_ID);
     return income;
@@ -42,7 +39,5 @@ void IncomeManager::showAllIncomes() {
 }
 
 int IncomeManager::getNewIncomeId() {
-    int newId = 1;
-//int newId = fileWithIncomes.getLastIncomeIdInFile() + 1;
-    return newId;
+    return fileWithIncomes.getLastIncomeIdInFile() + 1;
 }

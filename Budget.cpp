@@ -7,7 +7,7 @@ void Budget::userRegister() {
 void Budget::userLogin() {
     userManager.userLogin();
     if (userLoggedIn() == true)
-        incomeManager = new IncomeManager(userManager.getLoggedUserId());
+        incomeManager = new IncomeManager("Incomes.xml", userManager.getLoggedUserId());
 }
 
 void Budget::userLogout() {
