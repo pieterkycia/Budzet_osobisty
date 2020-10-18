@@ -57,7 +57,7 @@ string Income::getDateOnString() {
 }
 
 Date & Income::getDate() {
-return date;
+    return date;
 }
 
 string Income::getItem() {

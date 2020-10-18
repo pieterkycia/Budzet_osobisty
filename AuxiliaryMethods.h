@@ -17,4 +17,5 @@ public:
     static string convertFloatToString(float number);
     static string changeCommaToDot(string number);
 };
+
 #endif // AUXILIARYMETHODS_H

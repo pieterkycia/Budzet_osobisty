@@ -20,5 +20,4 @@ public:
     int getLastIncomeIdInFile();
 };
 
-
 #endif // FILEWITHINCOMES_H

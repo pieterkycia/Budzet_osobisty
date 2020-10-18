@@ -5,10 +5,12 @@ User UserManager::setNewUserData() {
 
     cout << endl << "Podaj imie: ";
     string name = AuxiliaryMethods::loadLine();
-    user.setName(AuxiliaryMethods::changeFirstLetterForUpperCaseAndOthersForLowerCase(name));
+    name = AuxiliaryMethods::changeFirstLetterForUpperCaseAndOthersForLowerCase(name);
+    user.setName(name);
     cout << "Podaj nazwisko: ";
     string surname = AuxiliaryMethods::loadLine();
-    user.setSurname(AuxiliaryMethods::changeFirstLetterForUpperCaseAndOthersForLowerCase(surname));
+    surname = AuxiliaryMethods::changeFirstLetterForUpperCaseAndOthersForLowerCase(surname);
+    user.setSurname(surname);
 
     do {
         cout << "Podaj login: ";
@@ -52,33 +54,28 @@ void UserManager::userLogin() {
     string login = "";
     string password = "";
 
-    if (!users.empty()) {
-        cout << endl << "Podaj login: ";
-        login = AuxiliaryMethods::loadLine();
-        for (int i = 0; i < users.size(); i++) {
-            if (users[i].getLogin() == login) {
+    cout << endl << "Podaj login: ";
+    login = AuxiliaryMethods::loadLine();
+    for (int i = 0; i < users.size(); i++) {
+        if (users[i].getLogin() == login) {
 
-                for (int j = 3; j > 0; j--) {
-                    cout << endl << "Podaj haslo. Pozostalo prob: " << j << ": ";
-                    password = AuxiliaryMethods::loadLine();
-                    if (users[i].getPassword() == password) {
-                        cout << endl << "Zalogowano." << endl;
-                        loggedUserId = users[i].getUserId();
-                        system("pause");
-                        return;
-                    }
+            for (int ileProb = 3; ileProb > 0; ileProb--) {
+                cout << endl << "Podaj haslo. Pozostalo prob: " << ileProb << ": ";
+                password = AuxiliaryMethods::loadLine();
+                if (users[i].getPassword() == password) {
+                    cout << endl << "Zalogowano." << endl;
+                    loggedUserId = users[i].getUserId();
+                    system("pause");
+                    return;
                 }
-                cout << endl << "Wprowadzono 3 razy bledne haslo." << endl;
-                system("pause");
-                return;
             }
+            cout << endl << "Wprowadzono 3 razy bledne haslo." << endl;
+            system("pause");
+            return;
         }
-        cout << endl << "Nie ma uzytkownika z takim loginem " << endl;
-        system("pause");
-    } else {
-        cout << endl << "Nie ma zapisanych uzytkownikow." << endl;
-        system("pause");
     }
+    cout << endl << "Nie ma uzytkownika z takim loginem " << endl;
+    system("pause");
 }
 
 void UserManager::userLogout() {

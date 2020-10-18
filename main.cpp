@@ -35,6 +35,9 @@ int main() {
             case '1':
                 budget.addIncome();
                 break;
+            case '2':
+                //budget.addExpense();
+                break;
             case '3':
                 budget.showBalanceInThisMonth();
                 break;
@@ -49,9 +52,6 @@ int main() {
                 break;
             case '7':
                 budget.userLogout();
-                break;
-            case '8':
-                budget.showAllIncomes();
                 break;
             default :
                 cout << "Nie ma takiej opcji w menu" << endl;

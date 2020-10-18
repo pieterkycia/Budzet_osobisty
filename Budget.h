@@ -22,11 +22,10 @@ public:
     void showAllUsers();
 
     void addIncome();
-    void showAllIncomes();
-
     void showBalanceInThisMonth();
     void showBalanceInPreviousMonth();
     void showBalanceInSelectedPeriod();
+    void showBalance(Date & startingDate, Date & endingDate);
 
     char selectOptionFromMainMenu();
     char selectOptionFromUserMenu();

@@ -35,10 +35,6 @@ void Budget::addIncome() {
     incomeManager -> addIncome();
 }
 
-void Budget::showAllIncomes() {
-    incomeManager -> showAllIncomes();
-}
-
 char Budget::selectOptionFromMainMenu() {
     char choice;
 
@@ -63,11 +59,13 @@ char Budget::selectOptionFromUserMenu() {
     cout << " >>> MENU UZYTKOWNIKA <<<" << endl;
     cout << "---------------------------" << endl;
     cout << "1. Dodaj przychod" << endl;
-    cout << "2. Wyswietl przychody" << endl;
-    cout << "3. Wyswietl z tego miesiaca" << endl;
+    cout << "2. Dodaj wydatek" << endl;
+    cout << "3. Bilans z tego miesiaca" << endl;
+    cout << "4. Bilans z poprzedniego miesiaca" << endl;
+    cout << "5. Bilans z wybranego okresu" << endl;
     cout << "---------------------------" << endl;
-    cout << "4. Zmien haslo" << endl;
-    cout << "5. Wyloguj sie" << endl;
+    cout << "6. Zmien haslo" << endl;
+    cout << "7. Wyloguj sie" << endl;
     cout << "---------------------------" << endl;
     cout << "Twoj wybor: ";
     choice = AuxiliaryMethods::loadChar();
@@ -76,21 +74,16 @@ char Budget::selectOptionFromUserMenu() {
 }
 
 void Budget::showBalanceInThisMonth() {
-    vector <Income> selectedIncomes;
     Date startingDate;
     Date endingDate;
 
     startingDate.setFirstDayInMonth();
     endingDate.setLastDayInMonth();
 
-    selectedIncomes = incomeManager -> selectedIncomes(startingDate, endingDate);
-    incomeManager -> showSelectedIncomes(selectedIncomes);
-    cout << incomeManager -> sumOfSelectedIncomes(selectedIncomes) << endl;
-    system("pause");
+    showBalance(startingDate, endingDate);
 }
 
 void Budget::showBalanceInPreviousMonth() {
-    vector <Income> selectedIncomes;
     Date startingDate;
     Date endingDate;
 
@@ -99,14 +92,10 @@ void Budget::showBalanceInPreviousMonth() {
     endingDate.setPreviousMonth();
     endingDate.setLastDayInMonth();
 
-    selectedIncomes = incomeManager -> selectedIncomes(startingDate, endingDate);
-    incomeManager -> showSelectedIncomes(selectedIncomes);
-    cout << incomeManager -> sumOfSelectedIncomes(selectedIncomes) << endl;
-    system("pause");
+    showBalance(startingDate, endingDate);
 }
 
 void Budget::showBalanceInSelectedPeriod() {
-    vector <Income> selectedIncomes;
     Date startingDate;
     Date endingDate;
 
@@ -117,10 +106,13 @@ void Budget::showBalanceInSelectedPeriod() {
         system("pause");
         return;
     }
-
-    selectedIncomes = incomeManager -> selectedIncomes(startingDate, endingDate);
-    incomeManager -> showSelectedIncomes(selectedIncomes);
-    cout << incomeManager -> sumOfSelectedIncomes(selectedIncomes) << endl;
-    system("pause");
+    showBalance(startingDate, endingDate);
 }
 
+void Budget::showBalance(Date & startingDate, Date & endingDate) {
+    vector <Income> selectedIncomes;
+    selectedIncomes = incomeManager -> selectIncomesByDate(startingDate, endingDate);
+    incomeManager -> showSelectedIncomes(selectedIncomes);
+    cout << endl << "Suma przychodow: " << incomeManager -> sumOfSelectedIncomes(selectedIncomes) << endl;
+    system("pause");
+}

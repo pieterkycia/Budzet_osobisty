@@ -16,5 +16,4 @@ public:
     vector <User> loadUserFromFile();
 };
 
-
 #endif // FILEWITHUSERS_H

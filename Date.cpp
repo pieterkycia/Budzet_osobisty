@@ -182,10 +182,6 @@ void Date::setPreviousMonth() {
         month = month - 1;
 }
 
-void Date::showDate() {
-    cout << endl << convertDateToString() << endl;
-}
-
 string Date::convertDateToString() {
     string convertedDate = "";
     string yearToString = "";

@@ -26,6 +26,4 @@ public:
     string getSurname();
 };
 
-
-
 #endif // USER_H

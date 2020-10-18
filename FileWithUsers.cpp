@@ -2,6 +2,7 @@
 
 void FileWithUsers::addUserToFile(User & user) {
     CMarkup xml;
+
     if(xml.Load(FILE_NAME) == false) {
         xml.SetDoc("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n");
         xml.AddElem("Users");

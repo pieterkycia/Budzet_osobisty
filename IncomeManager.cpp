@@ -23,22 +23,6 @@ Income IncomeManager::setNewIncomeData() {
     return income;
 }
 
-void IncomeManager::showAllIncomes() {
-    if (!incomes.empty()) {
-        for (int i = 0; i < incomes.size(); i++) {
-            cout << endl;
-            cout << "incomeId:     " << incomes[i].getIncomeId() << endl;
-            cout << "userId:       " << incomes[i].getUserId() << endl;
-            cout << "date:         " << incomes[i].getDateOnString() << endl;
-            cout << "item:         " << incomes[i].getItem() << endl;
-            cout << "amount:       " << incomes[i].getAmount() << endl;
-        }
-    } else {
-        cout << endl << "Nie ma zapisanych przychodow." << endl;
-    }
-    system("pause");
-}
-
 void IncomeManager::showSelectedIncomes(vector <Income> & selectedIncomes) {
     if (!selectedIncomes.empty()) {
         for (int i = 0; i < selectedIncomes.size(); i++) {
@@ -52,14 +36,13 @@ void IncomeManager::showSelectedIncomes(vector <Income> & selectedIncomes) {
     } else {
         cout << endl << "Nie ma zapisanych przychodow." << endl;
     }
-    system("pause");
 }
 
 int IncomeManager::getNewIncomeId() {
     return fileWithIncomes.getLastIncomeIdInFile() + 1;
 }
 
-vector <Income> IncomeManager::selectedIncomes(Date & startingDate, Date & endingDate) {
+vector <Income> IncomeManager::selectIncomesByDate(Date & startingDate, Date & endingDate) {
     vector <Income> selectedIncomes;
 
     for (int i = 0; i < incomes.size(); i++) {

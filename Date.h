@@ -34,7 +34,6 @@ public:
     void setPreviousMonth();
 
     string convertDateToString();
-    void showDate();
 };
 
 #endif // DATE_H
