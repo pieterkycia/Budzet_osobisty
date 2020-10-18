@@ -1,6 +1,6 @@
 #include "FileWithUsers.h"
 
-void FileWithUsers::addUserToFile(User user) {
+void FileWithUsers::addUserToFile(User & user) {
     CMarkup xml;
     if(xml.Load(FILE_NAME) == false) {
         xml.SetDoc("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n");
@@ -48,7 +48,7 @@ vector <User> FileWithUsers::loadUserFromFile() {
     return users;
 }
 
-void FileWithUsers::changeUserPasswordInFile(User user) {
+void FileWithUsers::changeUserPasswordInFile(User & user) {
     CMarkup xml;
 
     xml.Load(FILE_NAME);

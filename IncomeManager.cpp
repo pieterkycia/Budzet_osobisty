@@ -5,6 +5,7 @@ void IncomeManager::addIncome() {
 
     income = setNewIncomeData();
     incomes.push_back(income);
+    fileWithIncomes.addIncomeToFile(income);
     cout << "Dodano przychod." << endl;
     system("pause");
 }

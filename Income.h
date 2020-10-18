@@ -8,7 +8,7 @@ class Income {
     int userId;
     Date date;
     string item;
-    float amount;
+    string amount;
 
 public:
 
@@ -19,13 +19,13 @@ public:
     void setDate();
     void setDateFromFile(string dateFromFile);
     void setItem(string item);
-    void setAmount(string newAmount);
+    void setAmount(string amount);
 
     int getIncomeId();
     int getUserId();
     string getDate();
     string getItem();
-    float getAmount();
+    string getAmount();
 };
 
 #endif // INCOME_H

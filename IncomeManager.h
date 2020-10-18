@@ -17,7 +17,7 @@ class IncomeManager {
 
 public:
     IncomeManager(string fileName, int loggedUserId): fileWithIncomes(fileName), LOGGED_USER_ID(loggedUserId) {
-    incomes = fileWithIncomes.loadIncomesLoggedUserFromFile(LOGGED_USER_ID);
+        incomes = fileWithIncomes.loadIncomesLoggedUserFromFile(LOGGED_USER_ID);
     };
 
     void addIncome();

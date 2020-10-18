@@ -38,6 +38,13 @@ string AuxiliaryMethods::convertIntToString(int number) {
     return str;
 }
 
+string AuxiliaryMethods::convertFloatToString(float number) {
+    ostringstream ss;
+    ss << number;
+    string str = ss.str();
+    return str;
+}
+
 string AuxiliaryMethods::changeCommaToDot(string number) {
     for (int i = 0; i < number.length(); i++) {
         if (number[i] == ',')

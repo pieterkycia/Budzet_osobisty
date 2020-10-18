@@ -32,16 +32,16 @@ void Income::setDate() {
 }
 
 void Income::setDateFromFile(string dateFromFile) {
-date.checkDate(dateFromFile);
+    date.checkDate(dateFromFile);
 }
 
 void Income::setItem(string item) {
     this -> item = item;
 }
 
-void Income::setAmount(string newAmount) {
-    newAmount = AuxiliaryMethods::changeCommaToDot(newAmount);
-    this -> amount = atof(newAmount.c_str());
+void Income::setAmount(string amount) {
+
+    this -> amount = AuxiliaryMethods::changeCommaToDot(amount);
 }
 
 int Income::getIncomeId() {
@@ -60,6 +60,6 @@ string Income::getItem() {
     return item;
 }
 
-float Income::getAmount() {
+string Income::getAmount() {
     return amount;
 }

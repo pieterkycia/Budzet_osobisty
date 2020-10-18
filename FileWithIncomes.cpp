@@ -32,8 +32,9 @@ vector <Income> FileWithIncomes::loadIncomesLoggedUserFromFile(int loggedUserId)
     return incomes;
 }
 
-/*
-void FileWithIncomes::addIncomeToFile() {
+void FileWithIncomes::addIncomeToFile(Income & income) {
+    CMarkup xml;
+
     if(xml.Load(FILE_NAME) == false) {
         xml.SetDoc("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n");
         xml.AddElem("Incomes");
@@ -42,8 +43,17 @@ void FileWithIncomes::addIncomeToFile() {
         } else
             xml.AddElem("Incomes");
     }
+    xml.IntoElem();
+    xml.AddElem("Income");
+    xml.IntoElem();
+    xml.AddElem("incomeId", income.getIncomeId());
+    xml.AddElem("userId", income.getUserId());
+    xml.AddElem("date", income.getDate());
+    xml.AddElem("item", income.getItem());
+    xml.AddElem("amount", income.getAmount());
+    xml.Save(FILE_NAME);
+    lastIncomeIdInFile++;
 }
-*/
 
 int FileWithIncomes::getLastIncomeIdInFile() {
     return lastIncomeIdInFile;

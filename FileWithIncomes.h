@@ -9,15 +9,14 @@
 using namespace std;
 
 class FileWithIncomes {
-const string FILE_NAME;
-int lastIncomeIdInFile;
-
+    const string FILE_NAME;
+    int lastIncomeIdInFile;
 
 public:
-    FileWithIncomes(string fileName): FILE_NAME(fileName){};
+    FileWithIncomes(string fileName): FILE_NAME(fileName) {};
 
     vector <Income> loadIncomesLoggedUserFromFile(int loggedUserId);
-
+    void addIncomeToFile(Income & income);
     int getLastIncomeIdInFile();
 };
 
