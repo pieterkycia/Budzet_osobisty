@@ -52,8 +52,12 @@ int Income::getUserId() {
     return userId;
 }
 
-string Income::getDate() {
+string Income::getDateOnString() {
     return date.convertDateToString();
+}
+
+Date & Income::getDate() {
+return date;
 }
 
 string Income::getItem() {

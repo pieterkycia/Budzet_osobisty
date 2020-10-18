@@ -64,13 +64,63 @@ char Budget::selectOptionFromUserMenu() {
     cout << "---------------------------" << endl;
     cout << "1. Dodaj przychod" << endl;
     cout << "2. Wyswietl przychody" << endl;
+    cout << "3. Wyswietl z tego miesiaca" << endl;
     cout << "---------------------------" << endl;
-    cout << "3. Zmien haslo" << endl;
-    cout << "4. Wyloguj sie" << endl;
+    cout << "4. Zmien haslo" << endl;
+    cout << "5. Wyloguj sie" << endl;
     cout << "---------------------------" << endl;
     cout << "Twoj wybor: ";
     choice = AuxiliaryMethods::loadChar();
 
     return choice;
+}
+
+void Budget::showBalanceInThisMonth() {
+    vector <Income> selectedIncomes;
+    Date startingDate;
+    Date endingDate;
+
+    startingDate.setFirstDayInMonth();
+    endingDate.setLastDayInMonth();
+
+    selectedIncomes = incomeManager -> selectedIncomes(startingDate, endingDate);
+    incomeManager -> showSelectedIncomes(selectedIncomes);
+    cout << incomeManager -> sumOfSelectedIncomes(selectedIncomes) << endl;
+    system("pause");
+}
+
+void Budget::showBalanceInPreviousMonth() {
+    vector <Income> selectedIncomes;
+    Date startingDate;
+    Date endingDate;
+
+    startingDate.setPreviousMonth();
+    startingDate.setFirstDayInMonth();
+    endingDate.setPreviousMonth();
+    endingDate.setLastDayInMonth();
+
+    selectedIncomes = incomeManager -> selectedIncomes(startingDate, endingDate);
+    incomeManager -> showSelectedIncomes(selectedIncomes);
+    cout << incomeManager -> sumOfSelectedIncomes(selectedIncomes) << endl;
+    system("pause");
+}
+
+void Budget::showBalanceInSelectedPeriod() {
+    vector <Income> selectedIncomes;
+    Date startingDate;
+    Date endingDate;
+
+    startingDate.setUserDate();
+    endingDate.setUserDate();
+    if (endingDate <= startingDate) {
+        cout << "Niepoprawny okres do wyswietlenia." << endl;
+        system("pause");
+        return;
+    }
+
+    selectedIncomes = incomeManager -> selectedIncomes(startingDate, endingDate);
+    incomeManager -> showSelectedIncomes(selectedIncomes);
+    cout << incomeManager -> sumOfSelectedIncomes(selectedIncomes) << endl;
+    system("pause");
 }
 

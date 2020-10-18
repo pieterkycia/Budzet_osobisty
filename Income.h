@@ -23,7 +23,8 @@ public:
 
     int getIncomeId();
     int getUserId();
-    string getDate();
+    string getDateOnString();
+    Date & getDate();
     string getItem();
     string getAmount();
 };

@@ -8,8 +8,8 @@
 class IncomeManager {
     const int LOGGED_USER_ID;
     vector <Income> incomes;
-    Date startingDateToShowBalance;
-    Date endingDateToShowBalance;
+    //Date startingDateToShowBalance;
+    //Date endingDateToShowBalance;
     FileWithIncomes fileWithIncomes;
 
     Income setNewIncomeData();
@@ -21,7 +21,10 @@ public:
     };
 
     void addIncome();
+    vector <Income> selectedIncomes(Date & startingDate, Date & endingDate);
     void showAllIncomes();
+    void showSelectedIncomes(vector <Income> & selectedIncomes);
+    float sumOfSelectedIncomes(vector <Income> & selectedIncomes);
 };
 
 

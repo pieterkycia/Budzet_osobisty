@@ -31,15 +31,15 @@ vector <User> FileWithUsers::loadUserFromFile() {
         xml.IntoElem();
         while (xml.FindElem("User")) {
             xml.IntoElem();
-            xml.FindElem();
+            xml.FindElem("userId");
             user.setUserId(atoi( MCD_2PCSZ(xml.GetData())));
-            xml.FindElem();
+            xml.FindElem("login");
             user.setLogin(xml.GetData());
-            xml.FindElem();
+            xml.FindElem("password");
             user.setPassword(xml.GetData());
-            xml.FindElem();
+            xml.FindElem("name");
             user.setName(xml.GetData());
-            xml.FindElem();
+            xml.FindElem("surname");
             user.setSurname(xml.GetData());
             users.push_back(user);
             xml.OutOfElem();

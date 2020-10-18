@@ -24,6 +24,10 @@ public:
     void addIncome();
     void showAllIncomes();
 
+    void showBalanceInThisMonth();
+    void showBalanceInPreviousMonth();
+    void showBalanceInSelectedPeriod();
+
     char selectOptionFromMainMenu();
     char selectOptionFromUserMenu();
 };
