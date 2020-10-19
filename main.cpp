@@ -1,6 +1,5 @@
 #include <iostream>
 #include "Budget.h"
-#include "Date.h"
 
 using namespace std;
 
@@ -34,9 +33,24 @@ int main() {
             choice = budget.selectOptionFromUserMenu();
             switch (choice) {
             case '1':
-                budget.changePassword();
+                budget.addIncome();
                 break;
             case '2':
+                //budget.addExpense();
+                break;
+            case '3':
+                budget.showBalanceInThisMonth();
+                break;
+            case '4':
+                budget.showBalanceInPreviousMonth();
+                break;
+            case '5':
+                budget.showBalanceInSelectedPeriod();
+                break;
+            case '6':
+                budget.changePassword();
+                break;
+            case '7':
                 budget.userLogout();
                 break;
             default :

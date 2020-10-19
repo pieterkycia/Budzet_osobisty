@@ -30,6 +30,4 @@ public:
     int getLoggedUserId();
 };
 
-
-
 #endif // USERMANAGER_H

@@ -6,15 +6,14 @@
 #include <vector>
 
 class FileWithUsers {
-    const string NAME_FILE;
+    const string FILE_NAME;
 
 public:
-    FileWithUsers(string nameFile): NAME_FILE(nameFile) {};
+    FileWithUsers(string fileName): FILE_NAME(fileName) {};
 
-    void addUserToFile(User user);
-    void changeUserPasswordInFile(User user);
+    void addUserToFile(User & user);
+    void changeUserPasswordInFile(User & user);
     vector <User> loadUserFromFile();
 };
-
 
 #endif // FILEWITHUSERS_H
