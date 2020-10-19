@@ -38,7 +38,7 @@ void IncomeManager::showSelectedIncomes(vector <Income> & selectedIncomes) {
             cout << "amount:       " << selectedIncomes[i].getAmount() << endl;
         }
     } else {
-        cout << endl << "Nie ma zapisanych przychodow." << endl;
+        cout << endl << "Brak przychodow." << endl;
     }
 }
 
@@ -54,8 +54,8 @@ vector <Income> IncomeManager::selectIncomesByDate(Date & startingDate, Date & e
     return selectedIncomes;
 }
 
-float IncomeManager::sumOfSelectedIncomes(vector <Income> & selectedIncomes) {
-    float sum = 0;
+double IncomeManager::sumOfSelectedIncomes(vector <Income> & selectedIncomes) {
+    double sum = 0;
 
     for (int i = 0; i < selectedIncomes.size(); i++) {
         sum += atof((selectedIncomes[i].getAmount()).c_str());

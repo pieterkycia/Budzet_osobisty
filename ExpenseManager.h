@@ -21,7 +21,7 @@ public:
     void addExpense();
     vector <Expense> selectExpensesByDate(Date & startingDate, Date & endingDate);
     void showSelectedExpenses(vector <Expense> & selectedExpenses);
-    float sumOfSelectedExpenses(vector <Expense> & selectedExpenses);
+    double sumOfSelectedExpenses(vector <Expense> & selectedExpenses);
 };
 
 #endif // EXPENSEMANAGER_H

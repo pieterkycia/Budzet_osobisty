@@ -123,19 +123,27 @@ void Budget::showBalance(Date & startingDate, Date & endingDate) {
     vector <Expense> selectedExpenses;
 
     selectedIncomes = incomeManager -> selectIncomesByDate(startingDate, endingDate);
-    cout << endl << " >>> PRZYCHODY <<<" << endl;
-    cout << "----------------------" << endl;
+    cout << "-------------------------" << endl;
+    cout << " >>> PRZYCHODY <<<" << endl;
+    cout << "-------------------------" << endl;
     incomeManager -> showSelectedIncomes(selectedIncomes);
     selectedExpenses = expenseManager -> selectExpensesByDate(startingDate, endingDate);
-    cout << endl << " >>> WYDATKI <<<" << endl;
-    cout << "----------------------" << endl;
+    cout << endl;
+    cout << "-------------------------" << endl;
+    cout << " >>> WYDATKI <<<" << endl;
+    cout << "-------------------------" << endl;
     expenseManager -> showSelectedExpenses(selectedExpenses);
 
-    float sumOfIncomes = incomeManager -> sumOfSelectedIncomes(selectedIncomes);
-    float sumOfExpenses = expenseManager -> sumOfSelectedExpenses(selectedExpenses);
+    double sumOfIncomes = incomeManager -> sumOfSelectedIncomes(selectedIncomes);
+    double sumOfExpenses = expenseManager -> sumOfSelectedExpenses(selectedExpenses);
 
-    cout << endl << "Suma przychodow: " << sumOfIncomes << endl;
-    cout << "Suma wydatkow: " << sumOfExpenses << endl;
-    cout << "Bilans ogolny z tego okresu: " << sumOfIncomes - sumOfExpenses << endl << endl;
+    cout << endl << setprecision(2) << fixed;
+    cout << "-------------------------" << endl;
+    cout << "SUMA PRZYCHODOW:   " << sumOfIncomes << endl;
+    cout << "-------------------------" << endl;
+    cout << "SUMA WYDATKOW:     " << sumOfExpenses << endl;
+    cout << "-------------------------" << endl;
+    cout << "BILANS OGOLNY:     " << sumOfIncomes - sumOfExpenses << endl;
+    cout << "-------------------------" << endl;
     system("pause");
 }

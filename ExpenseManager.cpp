@@ -38,7 +38,7 @@ void ExpenseManager::showSelectedExpenses(vector <Expense> & selectedExpenses) {
             cout << "amount:       " << selectedExpenses[i].getAmount() << endl;
         }
     } else {
-        cout << endl << "Nie ma zapisanych wydatkow." << endl;
+        cout << endl << "Brak wydatkow." << endl;
     }
 }
 
@@ -54,8 +54,8 @@ vector <Expense> ExpenseManager::selectExpensesByDate(Date & startingDate, Date 
     return selectedExpenses;
 }
 
-float ExpenseManager::sumOfSelectedExpenses(vector <Expense> & selectedExpenses) {
-    float sum = 0;
+double ExpenseManager::sumOfSelectedExpenses(vector <Expense> & selectedExpenses) {
+    double sum = 0;
 
     for (int i = 0; i < selectedExpenses.size(); i++) {
         sum += atof((selectedExpenses[i].getAmount()).c_str());

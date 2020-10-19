@@ -11,7 +11,6 @@ class Expense {
     string amount;
 
 public:
-
     bool operator<(const Expense & expense);
 
     void setExpenseId(int expenseId);
