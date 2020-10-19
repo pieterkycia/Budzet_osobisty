@@ -31,11 +31,9 @@ void IncomeManager::showSelectedIncomes(vector <Income> & selectedIncomes) {
     if (!selectedIncomes.empty()) {
         for (int i = 0; i < selectedIncomes.size(); i++) {
             cout << endl;
-            cout << "incomeId:     " << selectedIncomes[i].getIncomeId() << endl;
-            cout << "userId:       " << selectedIncomes[i].getUserId() << endl;
-            cout << "date:         " << selectedIncomes[i].getDateInString() << endl;
-            cout << "item:         " << selectedIncomes[i].getItem() << endl;
-            cout << "amount:       " << selectedIncomes[i].getAmount() << endl;
+            cout << "Data:      " << selectedIncomes[i].getDateInString() << endl;
+            cout << "Nazwa:     " << selectedIncomes[i].getItem() << endl;
+            cout << "Kwota:     " << selectedIncomes[i].getAmount() << endl;
         }
     } else {
         cout << endl << "Brak przychodow." << endl;

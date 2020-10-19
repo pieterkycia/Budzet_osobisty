@@ -31,11 +31,9 @@ void ExpenseManager::showSelectedExpenses(vector <Expense> & selectedExpenses) {
     if (!selectedExpenses.empty()) {
         for (int i = 0; i < selectedExpenses.size(); i++) {
             cout << endl;
-            cout << "expenseId:    " << selectedExpenses[i].getExpenseId() << endl;
-            cout << "userId:       " << selectedExpenses[i].getUserId() << endl;
-            cout << "date:         " << selectedExpenses[i].getDateInString() << endl;
-            cout << "item:         " << selectedExpenses[i].getItem() << endl;
-            cout << "amount:       " << selectedExpenses[i].getAmount() << endl;
+            cout << "Data:      " << selectedExpenses[i].getDateInString() << endl;
+            cout << "Nazwa:     " << selectedExpenses[i].getItem() << endl;
+            cout << "Kwota:     " << selectedExpenses[i].getAmount() << endl;
         }
     } else {
         cout << endl << "Brak wydatkow." << endl;
