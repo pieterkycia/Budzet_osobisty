@@ -23,7 +23,6 @@ public:
     void userLogin();
     void userLogout();
     void changePassword();
-    void showAllUsers();
 
     void addIncome();
     void addExpense();

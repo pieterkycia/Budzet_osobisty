@@ -25,7 +25,6 @@ public:
     void userLogin();
     void userLogout();
     void changePassword();
-    void showAllUsers();
     int getLoggedUserId();
 };
 

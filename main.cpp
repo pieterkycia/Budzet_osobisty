@@ -18,9 +18,6 @@ int main() {
             case '2':
                 budget.userLogin();
                 break;
-            case '3':
-                budget.showAllUsers();
-                break;
             case '9':
                 exit(0);
                 break;
