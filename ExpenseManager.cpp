@@ -27,12 +27,11 @@ int ExpenseManager::getNewExpenseId() {
     return fileWithExpenses.getLastExpenseIdInFile() + 1;
 }
 
-/*
 void ExpenseManager::showSelectedExpenses(vector <Expense> & selectedExpenses) {
     if (!selectedExpenses.empty()) {
         for (int i = 0; i < selectedExpenses.size(); i++) {
             cout << endl;
-            cout << "expenseId:     " << selectedExpenses[i].getExpenseId() << endl;
+            cout << "expenseId:    " << selectedExpenses[i].getExpenseId() << endl;
             cout << "userId:       " << selectedExpenses[i].getUserId() << endl;
             cout << "date:         " << selectedExpenses[i].getDateOnString() << endl;
             cout << "item:         " << selectedExpenses[i].getItem() << endl;
@@ -63,4 +62,3 @@ float ExpenseManager::sumOfSelectedExpenses(vector <Expense> & selectedExpenses)
     }
     return sum;
 }
-*/

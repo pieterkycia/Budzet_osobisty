@@ -118,9 +118,24 @@ void Budget::showBalanceInSelectedPeriod() {
 }
 
 void Budget::showBalance(Date & startingDate, Date & endingDate) {
+    system("cls");
     vector <Income> selectedIncomes;
+    vector <Expense> selectedExpenses;
+
     selectedIncomes = incomeManager -> selectIncomesByDate(startingDate, endingDate);
+    cout << endl << " >>> PRZYCHODY <<<" << endl;
+    cout << "----------------------" << endl;
     incomeManager -> showSelectedIncomes(selectedIncomes);
-    cout << endl << "Suma przychodow: " << incomeManager -> sumOfSelectedIncomes(selectedIncomes) << endl;
+    selectedExpenses = expenseManager -> selectExpensesByDate(startingDate, endingDate);
+    cout << endl << " >>> WYDATKI <<<" << endl;
+    cout << "----------------------" << endl;
+    expenseManager -> showSelectedExpenses(selectedExpenses);
+
+    float sumOfIncomes = incomeManager -> sumOfSelectedIncomes(selectedIncomes);
+    float sumOfExpenses = expenseManager -> sumOfSelectedExpenses(selectedExpenses);
+
+    cout << endl << "Suma przychodow: " << sumOfIncomes << endl;
+    cout << "Suma wydatkow: " << sumOfExpenses << endl;
+    cout << "Bilans ogolny z tego okresu: " << sumOfIncomes - sumOfExpenses << endl << endl;
     system("pause");
 }
