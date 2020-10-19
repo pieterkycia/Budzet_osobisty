@@ -48,7 +48,7 @@ void FileWithIncomes::addIncomeToFile(Income & income) {
     xml.IntoElem();
     xml.AddElem("incomeId", income.getIncomeId());
     xml.AddElem("userId", income.getUserId());
-    xml.AddElem("date", income.getDateOnString());
+    xml.AddElem("date", income.getDateInString());
     xml.AddElem("item", income.getItem());
     xml.AddElem("amount", income.getAmount());
     xml.Save(FILE_NAME);

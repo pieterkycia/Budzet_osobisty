@@ -48,7 +48,7 @@ void FileWithExpenses::addExpenseToFile(Expense & expense) {
     xml.IntoElem();
     xml.AddElem("expenseId", expense.getExpenseId());
     xml.AddElem("userId", expense.getUserId());
-    xml.AddElem("date", expense.getDateOnString());
+    xml.AddElem("date", expense.getDateInString());
     xml.AddElem("item", expense.getItem());
     xml.AddElem("amount", expense.getAmount());
     xml.Save(FILE_NAME);

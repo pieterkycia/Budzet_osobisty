@@ -24,10 +24,6 @@ void Budget::changePassword() {
     userManager.changePassword();
 }
 
-void Budget::showAllUsers() {
-    userManager.showAllUsers();
-}
-
 bool Budget::userLoggedIn() {
     if (userManager.getLoggedUserId() > 0)
         return true;
@@ -51,7 +47,6 @@ char Budget::selectOptionFromMainMenu() {
     cout << "---------------------------" << endl;
     cout << "1. Rejestracja" << endl;
     cout << "2. Logowanie" << endl;
-    cout << "3. Wyswietl wszystkich uzytkownikow" << endl;
     cout << "9. Koniec programu" << endl;
     cout << "---------------------------" << endl;
     cout << "Twoj wybor: ";
@@ -81,7 +76,7 @@ char Budget::selectOptionFromUserMenu() {
     return choice;
 }
 
-void Budget::showBalanceInThisMonth() {
+void Budget::showBalanceInCurrentMonth() {
     Date startingDate;
     Date endingDate;
 

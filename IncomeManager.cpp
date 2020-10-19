@@ -33,7 +33,7 @@ void IncomeManager::showSelectedIncomes(vector <Income> & selectedIncomes) {
             cout << endl;
             cout << "incomeId:     " << selectedIncomes[i].getIncomeId() << endl;
             cout << "userId:       " << selectedIncomes[i].getUserId() << endl;
-            cout << "date:         " << selectedIncomes[i].getDateOnString() << endl;
+            cout << "date:         " << selectedIncomes[i].getDateInString() << endl;
             cout << "item:         " << selectedIncomes[i].getItem() << endl;
             cout << "amount:       " << selectedIncomes[i].getAmount() << endl;
         }

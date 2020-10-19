@@ -1,6 +1,7 @@
 #ifndef FILEWITHEXPENSES_H
 #define FILEWITHEXPENSES_H
 
+#include "GeneralXmlFile.h"
 #include "Expense.h"
 #include "Markup.h"
 #include <iostream>
@@ -8,12 +9,11 @@
 
 using namespace std;
 
-class FileWithExpenses {
-    const string FILE_NAME;
+class FileWithExpenses : public GeneralXmlFile {
     int lastExpenseIdInFile;
 
 public:
-    FileWithExpenses(string fileName): FILE_NAME(fileName) {};
+    FileWithExpenses(string fileName): GeneralXmlFile(fileName) {};
 
     vector <Expense> loadExpensesLoggedUserFromFile(int loggedUserId);
     void addExpenseToFile(Expense & expense);

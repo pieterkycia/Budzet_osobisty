@@ -23,11 +23,10 @@ public:
     void userLogin();
     void userLogout();
     void changePassword();
-    void showAllUsers();
 
     void addIncome();
     void addExpense();
-    void showBalanceInThisMonth();
+    void showBalanceInCurrentMonth();
     void showBalanceInPreviousMonth();
     void showBalanceInSelectedPeriod();
     void showBalance(Date & startingDate, Date & endingDate);

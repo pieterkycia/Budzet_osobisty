@@ -60,7 +60,7 @@ void UserManager::userLogin() {
         if (users[i].getLogin() == login) {
 
             for (int ileProb = 3; ileProb > 0; ileProb--) {
-                cout << endl << "Podaj haslo. Pozostalo prob: " << ileProb << ": ";
+                cout << "Podaj haslo. Pozostalo prob: " << ileProb << ": ";
                 password = AuxiliaryMethods::loadLine();
                 if (users[i].getPassword() == password) {
                     cout << endl << "Zalogowano." << endl;
@@ -98,22 +98,6 @@ void UserManager::changePassword() {
             return;
         }
     }
-}
-
-void UserManager::showAllUsers() {
-    if (!users.empty()) {
-        for (int i = 0; i < users.size(); i++) {
-            cout << endl;
-            cout << "UserId:      " << users[i].getUserId() << endl;
-            cout << "Name:        " << users[i].getName() << endl;
-            cout << "Surname:     " << users[i].getSurname() << endl;
-            cout << "Login:       " << users[i].getLogin() << endl;
-            cout << "Password:    " << users[i].getPassword() << endl;
-        }
-    } else {
-        cout << endl << "Nie ma zapisanych uzytkownikow." << endl;
-    }
-    system("pause");
 }
 
 int UserManager::getLoggedUserId() {
