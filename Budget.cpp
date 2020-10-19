@@ -81,7 +81,7 @@ char Budget::selectOptionFromUserMenu() {
     return choice;
 }
 
-void Budget::showBalanceInThisMonth() {
+void Budget::showBalanceInCurrentMonth() {
     Date startingDate;
     Date endingDate;
 

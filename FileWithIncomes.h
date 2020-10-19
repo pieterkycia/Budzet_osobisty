@@ -1,6 +1,7 @@
 #ifndef FILEWITHINCOMES_H
 #define FILEWITHINCOMES_H
 
+#include "GeneralXmlFile.h"
 #include "Income.h"
 #include "Markup.h"
 #include <iostream>
@@ -8,12 +9,11 @@
 
 using namespace std;
 
-class FileWithIncomes {
-    const string FILE_NAME;
+class FileWithIncomes : public GeneralXmlFile {
     int lastIncomeIdInFile;
 
 public:
-    FileWithIncomes(string fileName): FILE_NAME(fileName) {};
+    FileWithIncomes(string fileName): GeneralXmlFile(fileName) {};
 
     vector <Income> loadIncomesLoggedUserFromFile(int loggedUserId);
     void addIncomeToFile(Income & income);

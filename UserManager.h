@@ -26,7 +26,6 @@ public:
     void userLogout();
     void changePassword();
     void showAllUsers();
-
     int getLoggedUserId();
 };
 

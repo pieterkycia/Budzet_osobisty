@@ -1,15 +1,14 @@
 #ifndef FILEWITHUSERS_H
 #define FILEWITHUSERS_H
 
+#include "GeneralXmlFile.h"
 #include "User.h"
 #include "Markup.h"
 #include <vector>
 
-class FileWithUsers {
-    const string FILE_NAME;
-
+class FileWithUsers : public GeneralXmlFile {
 public:
-    FileWithUsers(string fileName): FILE_NAME(fileName) {};
+    FileWithUsers(string fileName): GeneralXmlFile(fileName) {};
 
     void addUserToFile(User & user);
     void changeUserPasswordInFile(User & user);
