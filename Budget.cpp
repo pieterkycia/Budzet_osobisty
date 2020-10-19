@@ -6,14 +6,18 @@ void Budget::userRegister() {
 
 void Budget::userLogin() {
     userManager.userLogin();
-    if (userLoggedIn() == true)
+    if (userLoggedIn() == true) {
         incomeManager = new IncomeManager("Incomes.xml", userManager.getLoggedUserId());
+        expenseManager = new ExpenseManager("Expenses.xml", userManager.getLoggedUserId());
+    }
 }
 
 void Budget::userLogout() {
     userManager.userLogout();
     delete incomeManager;
+    delete expenseManager;
     incomeManager = NULL;
+    expenseManager = NULL;
 }
 
 void Budget::changePassword() {
@@ -33,6 +37,10 @@ bool Budget::userLoggedIn() {
 
 void Budget::addIncome() {
     incomeManager -> addIncome();
+}
+
+void Budget::addExpense() {
+    expenseManager -> addExpense();
 }
 
 char Budget::selectOptionFromMainMenu() {
@@ -110,9 +118,32 @@ void Budget::showBalanceInSelectedPeriod() {
 }
 
 void Budget::showBalance(Date & startingDate, Date & endingDate) {
+    system("cls");
     vector <Income> selectedIncomes;
+    vector <Expense> selectedExpenses;
+
     selectedIncomes = incomeManager -> selectIncomesByDate(startingDate, endingDate);
+    cout << "-------------------------" << endl;
+    cout << " >>> PRZYCHODY <<<" << endl;
+    cout << "-------------------------" << endl;
     incomeManager -> showSelectedIncomes(selectedIncomes);
-    cout << endl << "Suma przychodow: " << incomeManager -> sumOfSelectedIncomes(selectedIncomes) << endl;
+    selectedExpenses = expenseManager -> selectExpensesByDate(startingDate, endingDate);
+    cout << endl;
+    cout << "-------------------------" << endl;
+    cout << " >>> WYDATKI <<<" << endl;
+    cout << "-------------------------" << endl;
+    expenseManager -> showSelectedExpenses(selectedExpenses);
+
+    double sumOfIncomes = incomeManager -> sumOfSelectedIncomes(selectedIncomes);
+    double sumOfExpenses = expenseManager -> sumOfSelectedExpenses(selectedExpenses);
+
+    cout << endl << setprecision(2) << fixed;
+    cout << "-------------------------" << endl;
+    cout << "SUMA PRZYCHODOW:   " << sumOfIncomes << endl;
+    cout << "-------------------------" << endl;
+    cout << "SUMA WYDATKOW:     " << sumOfExpenses << endl;
+    cout << "-------------------------" << endl;
+    cout << "BILANS OGOLNY:     " << sumOfIncomes - sumOfExpenses << endl;
+    cout << "-------------------------" << endl;
     system("pause");
 }

@@ -21,7 +21,7 @@ public:
     void addIncome();
     vector <Income> selectIncomesByDate(Date & startingDate, Date & endingDate);
     void showSelectedIncomes(vector <Income> & selectedIncomes);
-    float sumOfSelectedIncomes(vector <Income> & selectedIncomes);
+    double sumOfSelectedIncomes(vector <Income> & selectedIncomes);
 };
 
 #endif // INCOMEMANAGER_H

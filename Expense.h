@@ -1,26 +1,26 @@
-#ifndef INCOME_H
-#define INCOME_H
+#ifndef EXPENSE_H
+#define EXPENSE_H
 
 #include "Date.h"
 
-class Income {
-    int incomeId;
+class Expense {
+    int expenseId;
     int userId;
     Date date;
     string item;
     string amount;
 
 public:
-    bool operator<(const Income & income);
+    bool operator<(const Expense & expense);
 
-    void setIncomeId(int incomeId);
+    void setExpenseId(int expenseId);
     void setUserId(int userId);
     void setDate();
     void setDateFromFile(string dateFromFile);
     void setItem(string item);
     void setAmount(string amount);
 
-    int getIncomeId();
+    int getExpenseId();
     int getUserId();
     string getDateOnString();
     Date & getDate();
@@ -28,4 +28,4 @@ public:
     string getAmount();
 };
 
-#endif // INCOME_H
+#endif // EXPENSE_H

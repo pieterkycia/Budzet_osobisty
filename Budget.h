@@ -3,14 +3,18 @@
 
 #include "UserManager.h"
 #include "IncomeManager.h"
+#include "ExpenseManager.h"
+#include <iomanip>
 
 class Budget {
     UserManager userManager;
     IncomeManager * incomeManager;
+    ExpenseManager * expenseManager;
 
 public:
     Budget(string nameFileWithUsers): userManager(nameFileWithUsers) {
         incomeManager = NULL;
+        expenseManager = NULL;
     };
 
     bool userLoggedIn();
@@ -22,6 +26,7 @@ public:
     void showAllUsers();
 
     void addIncome();
+    void addExpense();
     void showBalanceInThisMonth();
     void showBalanceInPreviousMonth();
     void showBalanceInSelectedPeriod();
