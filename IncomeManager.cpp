@@ -23,6 +23,10 @@ Income IncomeManager::setNewIncomeData() {
     return income;
 }
 
+int IncomeManager::getNewIncomeId() {
+    return fileWithIncomes.getLastIncomeIdInFile() + 1;
+}
+
 void IncomeManager::showSelectedIncomes(vector <Income> & selectedIncomes) {
     if (!selectedIncomes.empty()) {
         for (int i = 0; i < selectedIncomes.size(); i++) {
@@ -36,10 +40,6 @@ void IncomeManager::showSelectedIncomes(vector <Income> & selectedIncomes) {
     } else {
         cout << endl << "Nie ma zapisanych przychodow." << endl;
     }
-}
-
-int IncomeManager::getNewIncomeId() {
-    return fileWithIncomes.getLastIncomeIdInFile() + 1;
 }
 
 vector <Income> IncomeManager::selectIncomesByDate(Date & startingDate, Date & endingDate) {

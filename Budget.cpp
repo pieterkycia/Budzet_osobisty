@@ -6,14 +6,18 @@ void Budget::userRegister() {
 
 void Budget::userLogin() {
     userManager.userLogin();
-    if (userLoggedIn() == true)
+    if (userLoggedIn() == true) {
         incomeManager = new IncomeManager("Incomes.xml", userManager.getLoggedUserId());
+        expenseManager = new ExpenseManager("Expenses.xml", userManager.getLoggedUserId());
+    }
 }
 
 void Budget::userLogout() {
     userManager.userLogout();
     delete incomeManager;
+    delete expenseManager;
     incomeManager = NULL;
+    expenseManager = NULL;
 }
 
 void Budget::changePassword() {
@@ -33,6 +37,10 @@ bool Budget::userLoggedIn() {
 
 void Budget::addIncome() {
     incomeManager -> addIncome();
+}
+
+void Budget::addExpense() {
+    expenseManager -> addExpense();
 }
 
 char Budget::selectOptionFromMainMenu() {
