@@ -33,7 +33,7 @@ void ExpenseManager::showSelectedExpenses(vector <Expense> & selectedExpenses) {
             cout << endl;
             cout << "expenseId:    " << selectedExpenses[i].getExpenseId() << endl;
             cout << "userId:       " << selectedExpenses[i].getUserId() << endl;
-            cout << "date:         " << selectedExpenses[i].getDateOnString() << endl;
+            cout << "date:         " << selectedExpenses[i].getDateInString() << endl;
             cout << "item:         " << selectedExpenses[i].getItem() << endl;
             cout << "amount:       " << selectedExpenses[i].getAmount() << endl;
         }

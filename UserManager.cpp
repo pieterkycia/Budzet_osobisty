@@ -60,7 +60,7 @@ void UserManager::userLogin() {
         if (users[i].getLogin() == login) {
 
             for (int ileProb = 3; ileProb > 0; ileProb--) {
-                cout << endl << "Podaj haslo. Pozostalo prob: " << ileProb << ": ";
+                cout << "Podaj haslo. Pozostalo prob: " << ileProb << ": ";
                 password = AuxiliaryMethods::loadLine();
                 if (users[i].getPassword() == password) {
                     cout << endl << "Zalogowano." << endl;
